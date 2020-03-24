@@ -43,14 +43,16 @@ Array.from(document.getElementsByClassName("key")).forEach(el => {
     } else if (event.target.className.match(/op/)) {
       newOp = event.target.textContent;
 
-      if (result === null) {
+      if (result === null && operand) {
         result = parseInt(operand);
       } else if (operand) {
         operate(parseInt(operand));
       }
       operation = newOp;
       operand = "";
-      updateDom(result);
+      if (result !== null) {
+        updateDom(result);
+      }
     } else {
       operand += event.target.textContent;
       updateDom(operand);

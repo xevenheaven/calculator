@@ -2,6 +2,10 @@ let result = null;
 let operand = "";
 let operation = "";
 
+const hasClassName = (element, regex) => {
+  return element.className.match(regex);
+};
+
 const updateDom = res => {
   document.getElementsByClassName("result")[0].textContent = res;
 };
@@ -38,10 +42,10 @@ document.addEventListener("DOMContentLoaded", event => {
 
 Array.from(document.getElementsByClassName("key")).forEach(el => {
   el.addEventListener("click", event => {
-    if (event.target.className.match(/clear/)) {
+    if (hasClassName(event.target, /clear/)) {
       reset();
       updateDom(0);
-    } else if (event.target.className.match(/sign/) || event.target.parentElement.className.match(/sign/)) {
+    } else if (hasClassName(event.target, /sign/) || hasClassName(event.target.parentElement, /sign/)) {
       if (operand) {
         operand = operand.startsWith("-") ? operand.replace(/^-/, "") : `-${operand}`;
         updateDom(operand);
@@ -49,7 +53,7 @@ Array.from(document.getElementsByClassName("key")).forEach(el => {
         result = result * -1;
         updateDom(result);
       }
-    } else if (event.target.className.match(/op/)) {
+    } else if (hasClassName(event.target, /op/)) {
       newOp = event.target.textContent;
 
       if (result === null && operand) {

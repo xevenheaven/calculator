@@ -27,6 +27,12 @@ body {
   cursor: default;
 }
 
+@media screen and (min-device-width: 320px) and (max-device-width: 800px) {
+  .calculator {
+    font-size: 2em;
+  }
+}
+
 .result {
   grid-column: 2 / span 2;
   grid-row: 1 / 2;

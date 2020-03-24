@@ -41,6 +41,14 @@ Array.from(document.getElementsByClassName("key")).forEach(el => {
     if (event.target.className.match(/clear/)) {
       reset();
       updateDom(0);
+    } else if (event.target.className.match(/sign/) || event.target.parentElement.className.match(/sign/)) {
+      if (operand) {
+        operand = operand.startsWith("-") ? operand.replace(/^-/, "") : `-${operand}`;
+        updateDom(operand);
+      } else {
+        result = result * -1;
+        updateDom(result);
+      }
     } else if (event.target.className.match(/op/)) {
       newOp = event.target.textContent;
 

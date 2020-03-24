@@ -32,8 +32,11 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  text-align: right;
   padding-right: 35px;
+  padding-left: 15px;
   background: #6cc2bd;
+  word-break: break-all;
 }
 
 .key {

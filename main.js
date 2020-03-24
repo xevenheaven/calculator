@@ -54,7 +54,9 @@ Array.from(document.getElementsByClassName("key")).forEach(el => {
         updateDom(result);
       }
     } else {
-      operand += event.target.textContent;
+      if (operand.length < 12) {
+        operand += event.target.textContent;
+      }
       updateDom(operand);
     }
   });

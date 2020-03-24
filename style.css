@@ -48,15 +48,22 @@ body {
 }
 
 .key:active {
-  filter: brightness(80%);
+  background: #6da0c6;
 }
 
-.op {
+.key.op {
   background: #fac0a7;
 }
 
-.special {
+.key.op.special,
+.key.clear.special {
   background: #f47d7d;
+}
+
+.key.op:active,
+.key.op.special:active,
+.key.clear.special:active {
+  filter: brightness(85%);
 }
 
 .sign {

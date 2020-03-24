@@ -24,6 +24,7 @@ body {
   grid-template-rows: repeat(5, 4em);
   background: #5a819e;
   text-align: center;
+  cursor: default;
 }
 
 .result {
@@ -43,6 +44,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .key:active {

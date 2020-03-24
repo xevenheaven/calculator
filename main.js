@@ -66,6 +66,9 @@ Array.from(document.getElementsByClassName("key")).forEach(el => {
       if (result !== null) {
         updateDom(result);
       }
+      if (result === 0) {
+        reset();
+      }
     } else {
       if (operand.length < 12) {
         operand += event.target.textContent;

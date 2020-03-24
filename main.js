@@ -23,6 +23,7 @@ const operate = res => {
     default:
       break;
   }
+  result = Math.round(result * Math.pow(10, 5)) / Math.pow(10, 5);
 };
 
 const reset = () => {
@@ -44,9 +45,9 @@ Array.from(document.getElementsByClassName("key")).forEach(el => {
       newOp = event.target.textContent;
 
       if (result === null && operand) {
-        result = parseInt(operand);
+        result = parseFloat(operand);
       } else if (operand) {
-        operate(parseInt(operand));
+        operate(parseFloat(operand));
       }
       operation = newOp;
       operand = "";

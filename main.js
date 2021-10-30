@@ -6,11 +6,11 @@ const hasClassName = (element, regex) => {
   return element.className.match(regex);
 };
 
-const updateDom = res => {
+const updateDom = (res) => {
   document.getElementsByClassName("result")[0].textContent = res;
 };
 
-const operate = res => {
+const operate = (res) => {
   switch (operation) {
     case "+":
       result += res;
@@ -36,18 +36,23 @@ const reset = () => {
   operation = "";
 };
 
-document.addEventListener("DOMContentLoaded", event => {
+document.addEventListener("DOMContentLoaded", (event) => {
   updateDom(0);
 });
 
-Array.from(document.getElementsByClassName("key")).forEach(el => {
-  el.addEventListener("click", event => {
+Array.from(document.getElementsByClassName("key")).forEach((el) => {
+  el.addEventListener("click", (event) => {
     if (hasClassName(event.target, /clear/)) {
       reset();
       updateDom(0);
-    } else if (hasClassName(event.target, /sign/) || hasClassName(event.target.parentElement, /sign/)) {
+    } else if (
+      hasClassName(event.target, /sign/) ||
+      hasClassName(event.target.parentElement, /sign/)
+    ) {
       if (operand) {
-        operand = operand.startsWith("-") ? operand.replace(/^-/, "") : `-${operand}`;
+        operand = operand.startsWith("-")
+          ? operand.replace(/^-/, "")
+          : `-${operand}`;
         updateDom(operand);
       } else {
         result = result * -1;
@@ -62,6 +67,9 @@ Array.from(document.getElementsByClassName("key")).forEach(el => {
         operate(parseFloat(operand));
       }
       operation = newOp;
+      if (operation === "x2") {
+        result = result * result;
+      }
       operand = "";
       if (result !== null) {
         updateDom(result);

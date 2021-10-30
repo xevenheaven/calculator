@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   updateDom(0);
 });
 
+const PI = "3.141592653";
 Array.from(document.getElementsByClassName("key")).forEach((el) => {
   el.addEventListener("click", (event) => {
     if (hasClassName(event.target, /clear/)) {
@@ -81,8 +82,17 @@ Array.from(document.getElementsByClassName("key")).forEach((el) => {
       }
     } else {
       if (operand.length < 12) {
-        operand += event.target.textContent;
+        if (event.target.textContent === "π" || operand === "π") {
+          operand = PI;
+        } else {
+          if (operand === PI) {
+            operand = event.target.textContent;
+          } else {
+            operand += event.target.textContent;
+          }
+        }
       }
+
       if (operation === "=") {
         result = null;
       }

@@ -72,6 +72,10 @@ body {
   user-select: none;
 }
 
+.key.symbol {
+  background-color: #ff9e74;
+}
+
 .key:active {
   background: #6da0c6;
 }

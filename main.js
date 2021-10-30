@@ -24,6 +24,9 @@ const operate = (res) => {
     case "÷":
       result = result / res;
       break;
+    case "xy":
+      result = Math.pow(result, res);
+      break;
     default:
       break;
   }

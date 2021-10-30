@@ -69,6 +69,8 @@ Array.from(document.getElementsByClassName("key")).forEach((el) => {
       operation = newOp;
       if (operation === "x2") {
         result = result * result;
+      } else if (operation === "√") {
+        result = Math.sqrt(result);
       }
       operand = "";
       if (result !== null) {

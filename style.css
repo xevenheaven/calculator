@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -7,7 +8,7 @@ body {
   padding: 0;
 
   color: white;
-  font-family: 'Menlo', sans-serif;
+  font-family: "Menlo", sans-serif;
   font-size: 20px;
 }
 
@@ -20,7 +21,7 @@ body {
 
 .calculator {
   display: grid;
-  grid-template-columns: repeat(4, 5em);
+  grid-template-columns: repeat(5, 5em);
   grid-template-rows: repeat(5, 4em);
   background: #5a819e;
   text-align: center;
@@ -46,6 +47,19 @@ body {
   word-break: break-all;
 }
 
+.calculate {
+  grid-column: 4 / span 2;
+  grid-row: 5 / 5;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: right;
+  padding-right: 35px;
+  padding-left: 15px;
+  background: #6cc2bd;
+  word-break: break-all;
+}
+
 .key {
   display: flex;
   justify-content: center;
@@ -53,9 +67,9 @@ body {
   cursor: pointer;
 
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .key:active {
@@ -80,4 +94,10 @@ body {
 .sign {
   display: inline-block;
   line-height: 3.5em;
+}
+
+.sup {
+  font-size: 0.5em;
+  position: relative;
+  bottom: 0.5em;
 }
